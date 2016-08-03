@@ -1,0 +1,38 @@
+<style type="text/css">
+	.form-control{
+		width: 100%
+	}
+</style>
+<body>
+<div class="container" ng-controller="login">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4" style="margin-top:60px">
+			<div class="login-panel panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Please Sign In</h3>
+				</div>
+			<div class="panel-body">
+					<form role="form" id="doLogin" class="landing login-form" avalonctrl="login">
+						<fieldset>
+							<div class="form-group" id="email">
+								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" ng-model="users.email">
+							</div>
+							<div class="form-group" id="password">
+								<input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="users.password">
+							</div>
+							<div class="form-group" id="captcha">
+								<p><input class="form-control" type="text" placeholder="Captcha" ng-model="users.captcha_code"></p>
+								<a id="captcha_code" ng-click="get_captcha()" href="javascript:;">
+									<img id="code_img" data-ng-src="data:image/png;base64,{{users.captcha_image}}">
+								</a>
+								<input  type="hidden"  ng-model="users.captcha_key">
+							</div>
+							<input type="hidden">
+							<button type="button" class="dologin btn btn-lg btn-success btn-block" id="login" ng-click="login()">Login</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

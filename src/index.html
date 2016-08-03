@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script type="text/javascript" src="lib/sea.js"></script>
+</head>
+<body>
+    <div ng-controller="testCtroller">
+        {{name}}
+    </div>
+    <div ui-view=""></div>
+</body>
+
+<script type="text/javascript">
+    seajs.config({
+        plugin:['shim'],
+        base:"./lib",
+        preload:["angular.min"],
+        alias:{
+            "jquery":"Jquery.js",
+            "angular":"angular.min.js",
+            "uiRouter":"angular-ui-router.min.js",
+            "clazyload":"ocLazyLoad.min.js",
+            "ngCookies":"angular-cookies.js"
+        }
+    });
+    seajs.use(["./router/route.js"],function () {
+        angular.element(document).ready(function () {
+            angular.bootstrap(document,['myApp']);
+        })
+    })
+</script>
+
+</html>
